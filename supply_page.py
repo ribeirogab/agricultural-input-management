@@ -226,13 +226,52 @@ def create_supply_page(root):
     for col in columns_supplies:
         tree_supplies.heading(col, text=col)
 
+    # Frame for adding new supplies
+    frame_footer_buttons = tk.Frame(frame_table_supplies)
+    frame_footer_buttons.pack(pady=10)
+
     # Button to export data
     btn_export_data = tk.Button(
-        frame_supplies,
+        frame_footer_buttons,
         text="Export Data (JSON)",
         command=export_data,
     )
-    btn_export_data.pack(pady=10)
+    btn_export_data.grid(row=1, column=1, sticky="ew")
+
+    # Button to import data
+    btn_import_data = tk.Button(
+        frame_footer_buttons,
+        text="Import Data (JSON)",
+    )
+    btn_import_data.grid(row=1, column=2, sticky="ew")
+
+    # Button to predict supply usage
+    btn_import_data = tk.Button(
+        frame_footer_buttons,
+        text="Predict Supply Usage",
+    )
+    btn_import_data.grid(row=1, column=3, sticky="ew")
+
+    # Button to generate usage report
+    btn_import_data = tk.Button(
+        frame_footer_buttons,
+        text="Generate Usage Report",
+    )
+    btn_import_data.grid(row=2, column=1, sticky="ew")
+
+    # Button to check expiration alert
+    btn_import_data = tk.Button(
+        frame_footer_buttons,
+        text="Check Expiration Alert",
+    )
+    btn_import_data.grid(row=2, column=2, sticky="ew")
+
+    # Button to check stock levels
+    btn_import_data = tk.Button(
+        frame_footer_buttons,
+        text="Check Stock Levels",
+    )
+    btn_import_data.grid(row=2, column=3, sticky="ew")
 
     # Load existing supplies from CSV
     load_supplies_from_csv(tree_supplies)
