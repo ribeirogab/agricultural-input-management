@@ -1,0 +1,52 @@
+{
+  "cc477d89-0c28-491b-ae97-1b0029c9f20b": {
+      "name": "AgroGlobal Ltd.",
+      "email": "contact@agroglobal.com",
+      "created_at": "2024-05-15 08:59:10"
+  },
+  "a310ddba-3ed7-4899-ae4d-e0d08257f160": {
+      "name": "GreenFarms Supplies",
+      "email": "info@greenfarms.com",
+      "created_at": "2024-05-15 08:59:16"
+  },
+  "810596b2-2d8e-4acb-a458-cf786fd965a4": {
+      "name": "FertileSoil Co.",
+      "email": "support@fertilesoil.com",
+      "created_at": "2024-05-15 08:59:21"
+  },
+  "34ed6bff-74d0-46bb-b146-c12fab99949b": {
+      "name": "HarvestSupplies Corp.",
+      "email": "sales@harvestsupplies.com",
+      "created_at": "2024-05-15 09:21:03"
+  },
+  "8e5579bd-5916-421a-ab9b-84ec1d38bff3": {
+      "name": "AgroVision Ltd.",
+      "email": "contact@agrovision.com",
+      "created_at": "2024-05-15 09:21:10"
+  },
+  "ad9a8e65-5042-4f97-b30a-d4c3de6d3c12": {
+      "name": "PlantHealth Solutions",
+      "email": "info@planthealth.com",
+      "created_at": "2024-05-15 10:00:00"
+  },
+  "fb0b5b5a-d2a1-4e59-8a49-e2e3c9a2db76": {
+      "name": "BioGrow Supplies",
+      "email": "support@biogrow.com",
+      "created_at": "2024-05-15 10:05:00"
+  },
+  "a6e33f4f-9623-41b4-86c2-f1b501b3f204": {
+      "name": "AgroGreen Ltd.",
+      "email": "contact@agrogreen.com",
+      "created_at": "2024-05-15 10:10:00"
+  },
+  "1f4d0c36-e61a-4f3f-854d-2f2a9e1e118f": {
+      "name": "FarmingEssentials Co.",
+      "email": "info@farmingessentials.com",
+      "created_at": "2024-05-15 10:15:00"
+  },
+  "f946d9d6-1dc6-41de-9cf1-24ae10a2c0d7": {
+      "name": "CropMaster Solutions",
+      "email": "support@cropmaster.com",
+      "created_at": "2024-05-15 10:20:00"
+  }
+}

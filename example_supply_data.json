@@ -1,0 +1,698 @@
+{
+  "bdd0a302-1cf0-44cd-a9ee-940f58489a13": {
+    "name": "Urea",
+    "quantity": 1,
+    "supplier": "34ed6bff-74d0-46bb-b146-c12fab99949b",
+    "type": "Fertilizers",
+    "created_at": "2024-09-30 07:11:19"
+  },
+  "0d236229-45ae-447f-823d-3d82c525562b": {
+    "name": "Monoammonium Phosphate (MAP)",
+    "quantity": 3,
+    "supplier": "810596b2-2d8e-4acb-a458-cf786fd965a4",
+    "type": "Fertilizers",
+    "created_at": "2024-08-26 13:30:19"
+  },
+  "934cd84f-2d52-4d81-9f7e-ef622cf471ae": {
+    "name": "Ammonium Nitrate",
+    "quantity": 5,
+    "supplier": "810596b2-2d8e-4acb-a458-cf786fd965a4",
+    "type": "Fertilizers",
+    "created_at": "2024-09-25 22:19:19"
+  },
+  "f8683100-41bc-4afe-89bb-a7e4009696d8": {
+    "name": "Hybrid Corn Seeds",
+    "quantity": 5,
+    "supplier": "fb0b5b5a-d2a1-4e59-8a49-e2e3c9a2db76",
+    "type": "Seeds",
+    "created_at": "2024-09-19 18:25:19"
+  },
+  "f6820357-7cdf-47aa-9d16-6086dafeadd4": {
+    "name": "Ammonium Nitrate",
+    "quantity": 9,
+    "supplier": "a6e33f4f-9623-41b4-86c2-f1b501b3f204",
+    "type": "Fertilizers",
+    "created_at": "2024-10-06 03:28:19"
+  },
+  "ed8c3403-bddb-4958-bd37-039047d68c52": {
+    "name": "Wheat Seeds",
+    "quantity": 3,
+    "supplier": "1f4d0c36-e61a-4f3f-854d-2f2a9e1e118f",
+    "type": "Seeds"
+  },
+  "800bfb35-1eec-4aae-9d74-e6481e3e382f": {
+    "name": "Cotton Seeds",
+    "quantity": 7,
+    "supplier": "810596b2-2d8e-4acb-a458-cf786fd965a4",
+    "type": "Seeds",
+    "created_at": "2024-08-20 03:20:19"
+  },
+  "e6db0826-c8f7-4b57-9926-8cd8cc6793f9": {
+    "name": "Monoammonium Phosphate (MAP)",
+    "quantity": 3,
+    "supplier": "34ed6bff-74d0-46bb-b146-c12fab99949b",
+    "type": "Fertilizers",
+    "created_at": "2024-10-11 20:07:19"
+  },
+  "23b373e0-dd77-4452-9211-625965e56492": {
+    "name": "Ammonium Nitrate",
+    "quantity": 2,
+    "supplier": "a6e33f4f-9623-41b4-86c2-f1b501b3f204",
+    "type": "Fertilizers"
+  },
+  "88160e73-9f45-4ee1-a6a6-b7bd7251cf6f": {
+    "name": "Monoammonium Phosphate (MAP)",
+    "quantity": 7,
+    "supplier": "a6e33f4f-9623-41b4-86c2-f1b501b3f204",
+    "type": "Fertilizers",
+    "created_at": "2024-07-18 14:48:19"
+  },
+  "c173db29-2c47-43a6-9355-265aaf08ba00": {
+    "name": "Potassium Sulfate",
+    "quantity": 9,
+    "supplier": "810596b2-2d8e-4acb-a458-cf786fd965a4",
+    "type": "Fertilizers",
+    "created_at": "2024-08-06 11:36:19"
+  },
+  "fc9bd0bb-8223-4bf6-add5-e1e66e5ea549": {
+    "name": "Monoammonium Phosphate (MAP)",
+    "quantity": 5,
+    "supplier": "34ed6bff-74d0-46bb-b146-c12fab99949b",
+    "type": "Fertilizers",
+    "created_at": "2024-07-30 06:12:19"
+  },
+  "95e7f31c-ba7f-4c10-8f31-8e93a7405361": {
+    "name": "Ammonium Nitrate",
+    "quantity": 6,
+    "supplier": "34ed6bff-74d0-46bb-b146-c12fab99949b",
+    "type": "Fertilizers",
+    "created_at": "2024-08-17 20:21:19"
+  },
+  "d109533c-bed4-44f9-a5bc-ef2f2ed646e7": {
+    "name": "Urea",
+    "quantity": 4,
+    "supplier": "f946d9d6-1dc6-41de-9cf1-24ae10a2c0d7",
+    "type": "Fertilizers",
+    "created_at": "2024-10-11 04:51:19"
+  },
+  "729f6475-093e-4edc-8190-d31c72a19797": {
+    "name": "Wheat Seeds",
+    "quantity": 6,
+    "supplier": "ad9a8e65-5042-4f97-b30a-d4c3de6d3c12",
+    "type": "Seeds",
+    "created_at": "2024-09-10 21:01:19"
+  },
+  "974921ec-ebdd-4343-9282-ba0d62a31e34": {
+    "name": "Monoammonium Phosphate (MAP)",
+    "quantity": 1,
+    "supplier": "a310ddba-3ed7-4899-ae4d-e0d08257f160",
+    "type": "Fertilizers",
+    "created_at": "2024-10-02 20:36:19"
+  },
+  "a816b569-b0d7-4594-8a65-96afaf45ce64": {
+    "name": "Hybrid Corn Seeds",
+    "quantity": 8,
+    "supplier": "fb0b5b5a-d2a1-4e59-8a49-e2e3c9a2db76",
+    "type": "Seeds",
+    "created_at": "2024-09-17 21:42:19"
+  },
+  "aafa54b4-283b-41a2-9f2f-899da8e9a2a6": {
+    "name": "Wheat Seeds",
+    "quantity": 9,
+    "supplier": "a6e33f4f-9623-41b4-86c2-f1b501b3f204",
+    "type": "Seeds",
+    "created_at": "2024-08-18 16:58:19"
+  },
+  "84c19a5a-d5cb-4017-9c32-7f2a10ae7454": {
+    "name": "Potassium Sulfate",
+    "quantity": 3,
+    "supplier": "810596b2-2d8e-4acb-a458-cf786fd965a4",
+    "type": "Fertilizers",
+    "created_at": "2024-07-23 18:26:19"
+  },
+  "9ebdb301-987c-4972-a236-ad149ecab04c": {
+    "name": "Potassium Sulfate",
+    "quantity": 1,
+    "supplier": "a310ddba-3ed7-4899-ae4d-e0d08257f160",
+    "type": "Fertilizers",
+    "created_at": "2024-10-09 07:10:19"
+  },
+  "ae39504e-ad8f-4f9a-86f5-d056a1ff9918": {
+    "name": "Cotton Seeds",
+    "quantity": 4,
+    "supplier": "a6e33f4f-9623-41b4-86c2-f1b501b3f204",
+    "type": "Seeds",
+    "created_at": "2024-09-17 22:07:19"
+  },
+  "831753d3-fb8c-4bf0-9ca2-5b5aa4573bdf": {
+    "name": "Barley Seeds",
+    "quantity": 6,
+    "supplier": "fb0b5b5a-d2a1-4e59-8a49-e2e3c9a2db76",
+    "type": "Seeds",
+    "created_at": "2024-07-20 01:20:19"
+  },
+  "f34d20de-f955-450e-b8d2-1a3e266d3bed": {
+    "name": "Soybean Seeds",
+    "quantity": 8,
+    "supplier": "a310ddba-3ed7-4899-ae4d-e0d08257f160",
+    "type": "Seeds",
+    "created_at": "2024-09-14 15:03:19"
+  },
+  "b5dad4b5-5344-481c-9e26-ff55d53bab56": {
+    "name": "Soybean Seeds",
+    "quantity": 1,
+    "supplier": "ad9a8e65-5042-4f97-b30a-d4c3de6d3c12",
+    "type": "Seeds",
+    "created_at": "2024-09-09 06:30:19"
+  },
+  "0fd32aca-0526-4d56-8dbf-01448da45223": {
+    "name": "Monoammonium Phosphate (MAP)",
+    "quantity": 9,
+    "supplier": "a6e33f4f-9623-41b4-86c2-f1b501b3f204",
+    "type": "Fertilizers",
+    "created_at": "2024-08-20 18:04:19"
+  },
+  "e519e7de-f6c2-4abd-9e14-8e4fbaac3e5d": {
+    "name": "Wheat Seeds",
+    "quantity": 2,
+    "supplier": "ad9a8e65-5042-4f97-b30a-d4c3de6d3c12",
+    "type": "Seeds",
+    "created_at": "2024-08-04 00:06:19"
+  },
+  "84c54c4f-763a-4d6c-baf4-15517f987bd9": {
+    "name": "Hybrid Corn Seeds",
+    "quantity": 5,
+    "supplier": "8e5579bd-5916-421a-ab9b-84ec1d38bff3",
+    "type": "Seeds",
+    "created_at": "2024-10-02 16:22:19"
+  },
+  "19c07bd1-93dc-469f-8b25-51724e9a234d": {
+    "name": "Hybrid Corn Seeds",
+    "quantity": 2,
+    "supplier": "810596b2-2d8e-4acb-a458-cf786fd965a4",
+    "type": "Seeds",
+    "created_at": "2024-07-19 15:49:19"
+  },
+  "04428a4b-0e5f-4715-87e3-a47aeef23fbd": {
+    "name": "Potassium Sulfate",
+    "quantity": 2,
+    "supplier": "a6e33f4f-9623-41b4-86c2-f1b501b3f204",
+    "type": "Fertilizers",
+    "created_at": "2024-09-10 06:02:19"
+  },
+  "3ebee62c-a6df-464a-9ff1-d2f1fa68a535": {
+    "name": "Barley Seeds",
+    "quantity": 5,
+    "supplier": "cc477d89-0c28-491b-ae97-1b0029c9f20b",
+    "type": "Seeds",
+    "created_at": "2024-09-14 14:26:19"
+  },
+  "d075daf8-f7e7-4785-aba9-843963670b5f": {
+    "name": "Monoammonium Phosphate (MAP)",
+    "quantity": 3,
+    "supplier": "f946d9d6-1dc6-41de-9cf1-24ae10a2c0d7",
+    "type": "Fertilizers",
+    "created_at": "2024-08-09 22:44:19"
+  },
+  "ca2a8602-383b-42cc-b158-dfd170aa32d1": {
+    "name": "Urea",
+    "quantity": 1,
+    "supplier": "34ed6bff-74d0-46bb-b146-c12fab99949b",
+    "type": "Fertilizers",
+    "created_at": "2024-07-28 22:28:19"
+  },
+  "a49b43e7-cdb2-4352-8eb2-f62313608181": {
+    "name": "Ammonium Nitrate",
+    "quantity": 1,
+    "supplier": "a310ddba-3ed7-4899-ae4d-e0d08257f160",
+    "type": "Fertilizers",
+    "created_at": "2024-09-24 01:56:19"
+  },
+  "ffd3495d-6c33-49db-939b-d268d7b56978": {
+    "name": "Soybean Seeds",
+    "quantity": 3,
+    "supplier": "fb0b5b5a-d2a1-4e59-8a49-e2e3c9a2db76",
+    "type": "Seeds",
+    "created_at": "2024-08-02 18:09:19"
+  },
+  "c55b5526-04d7-416a-ad40-262c00edd517": {
+    "name": "Cotton Seeds",
+    "quantity": 9,
+    "supplier": "fb0b5b5a-d2a1-4e59-8a49-e2e3c9a2db76",
+    "type": "Seeds",
+    "created_at": "2024-08-15 14:32:19"
+  },
+  "c80bc40d-dd09-4e5b-965f-bb1dc555646e": {
+    "name": "Barley Seeds",
+    "quantity": 7,
+    "supplier": "cc477d89-0c28-491b-ae97-1b0029c9f20b",
+    "type": "Seeds",
+    "created_at": "2024-09-23 08:40:19"
+  },
+  "8f40d2bb-853e-4dbc-aa91-92da27a741f9": {
+    "name": "Cotton Seeds",
+    "quantity": 2,
+    "supplier": "a6e33f4f-9623-41b4-86c2-f1b501b3f204",
+    "type": "Seeds",
+    "created_at": "2024-07-26 12:18:19"
+  },
+  "9ac941f4-b246-4031-8b55-b74690da8ab1": {
+    "name": "Urea",
+    "quantity": 3,
+    "supplier": "810596b2-2d8e-4acb-a458-cf786fd965a4",
+    "type": "Fertilizers",
+    "created_at": "2024-10-11 20:02:19"
+  },
+  "26adc435-4bc7-4ea3-ba3c-c448a024ee00": {
+    "name": "Potassium Sulfate",
+    "quantity": 9,
+    "supplier": "f946d9d6-1dc6-41de-9cf1-24ae10a2c0d7",
+    "type": "Fertilizers",
+    "created_at": "2024-09-07 00:12:19"
+  },
+  "f7fd0f00-813e-4ec2-9a9b-523d303fdbc6": {
+    "name": "Cotton Seeds",
+    "quantity": 3,
+    "supplier": "f946d9d6-1dc6-41de-9cf1-24ae10a2c0d7",
+    "type": "Seeds",
+    "created_at": "2024-08-12 16:20:19"
+  },
+  "10c055d9-788f-4b20-aa6a-e2d6ed920359": {
+    "name": "Soybean Seeds",
+    "quantity": 5,
+    "supplier": "ad9a8e65-5042-4f97-b30a-d4c3de6d3c12",
+    "type": "Seeds",
+    "created_at": "2024-08-10 10:04:19"
+  },
+  "a5176264-fcc8-4753-94f1-2bcef9dbc078": {
+    "name": "Barley Seeds",
+    "quantity": 7,
+    "supplier": "810596b2-2d8e-4acb-a458-cf786fd965a4",
+    "type": "Seeds",
+    "created_at": "2024-10-12 06:05:19"
+  },
+  "4857b450-4228-4c5c-9689-264afd4f4555": {
+    "name": "Ammonium Nitrate",
+    "quantity": 9,
+    "supplier": "fb0b5b5a-d2a1-4e59-8a49-e2e3c9a2db76",
+    "type": "Fertilizers",
+    "created_at": "2024-09-24 18:15:19"
+  },
+  "85f31b3d-4d20-473c-b375-0bbdef88daa5": {
+    "name": "Hybrid Corn Seeds",
+    "quantity": 3,
+    "supplier": "810596b2-2d8e-4acb-a458-cf786fd965a4",
+    "type": "Seeds",
+    "created_at": "2024-08-19 12:02:19"
+  },
+  "b3d960c4-742f-42e3-a7fe-0d1958fc2574": {
+    "name": "Organic Fertilizers",
+    "quantity": 6,
+    "supplier": "8e5579bd-5916-421a-ab9b-84ec1d38bff3",
+    "type": "Fertilizers"
+  },
+  "e4363f8a-84e9-4f78-9d66-5b545b7a8557": {
+    "name": "Soybean Seeds",
+    "quantity": 1,
+    "supplier": "ad9a8e65-5042-4f97-b30a-d4c3de6d3c12",
+    "type": "Seeds",
+    "created_at": "2024-08-31 05:00:19"
+  },
+  "7b9f67f8-c4c2-45a5-ade4-1935df6f2360": {
+    "name": "Ammonium Nitrate",
+    "quantity": 3,
+    "supplier": "34ed6bff-74d0-46bb-b146-c12fab99949b",
+    "type": "Fertilizers",
+    "created_at": "2024-10-12 18:34:19"
+  },
+  "6f35d1ce-625a-405e-b30e-79a463e5a35e": {
+    "name": "Organic Fertilizers",
+    "quantity": 2,
+    "supplier": "fb0b5b5a-d2a1-4e59-8a49-e2e3c9a2db76",
+    "type": "Fertilizers",
+    "created_at": "2024-08-16 09:27:19"
+  },
+  "a2ce6501-7397-456b-b410-4a960b397c9a": {
+    "name": "Monoammonium Phosphate (MAP)",
+    "quantity": 1,
+    "supplier": "a6e33f4f-9623-41b4-86c2-f1b501b3f204",
+    "type": "Fertilizers",
+    "created_at": "2024-08-19 09:20:19"
+  },
+  "407d5c6b-bc44-4f2e-8d63-9de8e3a26bfa": {
+    "name": "Soybean Seeds",
+    "quantity": 2,
+    "supplier": "1f4d0c36-e61a-4f3f-854d-2f2a9e1e118f",
+    "type": "Seeds"
+  },
+  "d98d106b-ef8d-4223-bc05-47c442cb3d23": {
+    "name": "Urea",
+    "quantity": 2,
+    "supplier": "fb0b5b5a-d2a1-4e59-8a49-e2e3c9a2db76",
+    "type": "Fertilizers",
+    "created_at": "2024-08-14 20:23:19"
+  },
+  "b4e387cd-68fc-44b3-85dc-d3ad0f0be70a": {
+    "name": "Monoammonium Phosphate (MAP)",
+    "quantity": 8,
+    "supplier": "1f4d0c36-e61a-4f3f-854d-2f2a9e1e118f",
+    "type": "Fertilizers",
+    "created_at": "2024-07-26 04:02:19"
+  },
+  "caab9861-b47e-454c-8aff-5fbc2b4e05e9": {
+    "name": "Monoammonium Phosphate (MAP)",
+    "quantity": 8,
+    "supplier": "34ed6bff-74d0-46bb-b146-c12fab99949b",
+    "type": "Fertilizers",
+    "created_at": "2024-09-11 18:21:19"
+  },
+  "ba53c8ed-7018-48c6-9833-7dbfdc8efead": {
+    "name": "Monoammonium Phosphate (MAP)",
+    "quantity": 7,
+    "supplier": "8e5579bd-5916-421a-ab9b-84ec1d38bff3",
+    "type": "Fertilizers",
+    "created_at": "2024-08-19 16:59:19"
+  },
+  "4536bb80-c481-4e47-a1cd-9bfb02d776ef": {
+    "name": "Ammonium Nitrate",
+    "quantity": 2,
+    "supplier": "fb0b5b5a-d2a1-4e59-8a49-e2e3c9a2db76",
+    "type": "Fertilizers",
+    "created_at": "2024-07-19 02:47:19"
+  },
+  "af85ce15-7890-41ba-bdef-d48e43da1902": {
+    "name": "Monoammonium Phosphate (MAP)",
+    "quantity": 6,
+    "supplier": "a310ddba-3ed7-4899-ae4d-e0d08257f160",
+    "type": "Fertilizers",
+    "created_at": "2024-08-11 19:00:19"
+  },
+  "ce5d236c-34f9-4279-9b41-7261e464b0cf": {
+    "name": "Organic Fertilizers",
+    "quantity": 1,
+    "supplier": "f946d9d6-1dc6-41de-9cf1-24ae10a2c0d7",
+    "type": "Fertilizers",
+    "created_at": "2024-09-09 15:30:19"
+  },
+  "5b828a87-ffbc-4403-8ca5-1d01a419b883": {
+    "name": "Barley Seeds",
+    "quantity": 9,
+    "supplier": "a310ddba-3ed7-4899-ae4d-e0d08257f160",
+    "type": "Seeds",
+    "created_at": "2024-08-24 14:55:19"
+  },
+  "5cb8f42c-3bae-49bd-a972-b4e5ab2d3925": {
+    "name": "Ammonium Nitrate",
+    "quantity": 4,
+    "supplier": "cc477d89-0c28-491b-ae97-1b0029c9f20b",
+    "type": "Fertilizers",
+    "created_at": "2024-09-10 13:34:19"
+  },
+  "71901974-2da0-4711-a58c-df5c5e9af56f": {
+    "name": "Urea",
+    "quantity": 3,
+    "supplier": "ad9a8e65-5042-4f97-b30a-d4c3de6d3c12",
+    "type": "Fertilizers",
+    "created_at": "2024-08-26 16:57:19"
+  },
+  "eba96ff6-f936-4153-930a-5930ed427580": {
+    "name": "Barley Seeds",
+    "quantity": 6,
+    "supplier": "1f4d0c36-e61a-4f3f-854d-2f2a9e1e118f",
+    "type": "Seeds",
+    "created_at": "2024-08-20 20:46:19"
+  },
+  "ba64ff32-c4fd-4a5f-bbc4-dfe1980136d9": {
+    "name": "Urea",
+    "quantity": 9,
+    "supplier": "fb0b5b5a-d2a1-4e59-8a49-e2e3c9a2db76",
+    "type": "Fertilizers",
+    "created_at": "2024-08-05 22:34:19"
+  },
+  "27af7d5d-9426-4bbc-b50f-c5e20076f8ed": {
+    "name": "Cotton Seeds",
+    "quantity": 5,
+    "supplier": "f946d9d6-1dc6-41de-9cf1-24ae10a2c0d7",
+    "type": "Seeds",
+    "created_at": "2024-09-30 20:51:19"
+  },
+  "bfe5a07c-581f-4942-953a-cdbd03d829ff": {
+    "name": "Cotton Seeds",
+    "quantity": 8,
+    "supplier": "a6e33f4f-9623-41b4-86c2-f1b501b3f204",
+    "type": "Seeds",
+    "created_at": "2024-08-16 02:36:19"
+  },
+  "833c519a-252f-421a-9f76-59d3f58f9dde": {
+    "name": "Cotton Seeds",
+    "quantity": 9,
+    "supplier": "f946d9d6-1dc6-41de-9cf1-24ae10a2c0d7",
+    "type": "Seeds",
+    "created_at": "2024-07-25 06:16:19"
+  },
+  "a5d4b86f-1156-42ee-af3a-8e2203b49532": {
+    "name": "Barley Seeds",
+    "quantity": 5,
+    "supplier": "1f4d0c36-e61a-4f3f-854d-2f2a9e1e118f",
+    "type": "Seeds",
+    "created_at": "2024-09-11 04:39:19"
+  },
+  "70d06d26-95a6-4cc5-baf9-cb4d4b1138e2": {
+    "name": "Wheat Seeds",
+    "quantity": 6,
+    "supplier": "810596b2-2d8e-4acb-a458-cf786fd965a4",
+    "type": "Seeds",
+    "created_at": "2024-07-22 00:40:19"
+  },
+  "fae7a296-8fea-42b0-bffa-2710c913dc5a": {
+    "name": "Monoammonium Phosphate (MAP)",
+    "quantity": 2,
+    "supplier": "cc477d89-0c28-491b-ae97-1b0029c9f20b",
+    "type": "Fertilizers",
+    "created_at": "2024-10-13 23:15:19"
+  },
+  "c1221c60-aa1f-4a26-b564-3bd2f21adbef": {
+    "name": "Barley Seeds",
+    "quantity": 2,
+    "supplier": "810596b2-2d8e-4acb-a458-cf786fd965a4",
+    "type": "Seeds",
+    "created_at": "2024-08-13 18:30:19"
+  },
+  "b2240ac8-b6c8-47e0-8b19-dce0582f6aa5": {
+    "name": "Ammonium Nitrate",
+    "quantity": 2,
+    "supplier": "a6e33f4f-9623-41b4-86c2-f1b501b3f204",
+    "type": "Fertilizers",
+    "created_at": "2024-08-22 04:22:19"
+  },
+  "ae24e786-cc4f-443b-ab56-44259ab964c7": {
+    "name": "Barley Seeds",
+    "quantity": 4,
+    "supplier": "a6e33f4f-9623-41b4-86c2-f1b501b3f204",
+    "type": "Seeds",
+    "created_at": "2024-09-30 05:39:19"
+  },
+  "3acf4e91-2d98-4cb2-83be-713a51363f5f": {
+    "name": "Wheat Seeds",
+    "quantity": 9,
+    "supplier": "a310ddba-3ed7-4899-ae4d-e0d08257f160",
+    "type": "Seeds",
+    "created_at": "2024-08-14 21:39:19"
+  },
+  "31751615-6b5f-4460-8f49-32606adc999d": {
+    "name": "Potassium Sulfate",
+    "quantity": 2,
+    "supplier": "a6e33f4f-9623-41b4-86c2-f1b501b3f204",
+    "type": "Fertilizers",
+    "created_at": "2024-10-09 21:03:19"
+  },
+  "ccb3d65b-9f03-4f28-ae1c-3b7eae2b8e07": {
+    "name": "Urea",
+    "quantity": 2,
+    "supplier": "a6e33f4f-9623-41b4-86c2-f1b501b3f204",
+    "type": "Fertilizers",
+    "created_at": "2024-09-07 03:18:19"
+  },
+  "6e4df1c2-fa8d-4e65-9198-803ed0af1596": {
+    "name": "Soybean Seeds",
+    "quantity": 5,
+    "supplier": "810596b2-2d8e-4acb-a458-cf786fd965a4",
+    "type": "Seeds",
+    "created_at": "2024-08-19 03:25:19"
+  },
+  "534a5659-9f39-48cc-8936-0d4b36370e1c": {
+    "name": "Wheat Seeds",
+    "quantity": 2,
+    "supplier": "810596b2-2d8e-4acb-a458-cf786fd965a4",
+    "type": "Seeds",
+    "created_at": "2024-10-03 20:04:19"
+  },
+  "340b47ee-fc6f-41b1-8223-ba3c32da7874": {
+    "name": "Hybrid Corn Seeds",
+    "quantity": 8,
+    "supplier": "8e5579bd-5916-421a-ab9b-84ec1d38bff3",
+    "type": "Seeds",
+    "created_at": "2024-08-24 17:59:19"
+  },
+  "955e6878-e883-490c-9af8-48042a969052": {
+    "name": "Organic Fertilizers",
+    "quantity": 1,
+    "supplier": "a310ddba-3ed7-4899-ae4d-e0d08257f160",
+    "type": "Fertilizers",
+    "created_at": "2024-09-05 04:45:19"
+  },
+  "aa0750b9-8bbb-4564-9083-c19a1e973bbf": {
+    "name": "Ammonium Nitrate",
+    "quantity": 5,
+    "supplier": "ad9a8e65-5042-4f97-b30a-d4c3de6d3c12",
+    "type": "Fertilizers",
+    "created_at": "2024-10-03 14:37:19"
+  },
+  "cf6064c8-48ff-4645-ac68-d8a04ef411da": {
+    "name": "Ammonium Nitrate",
+    "quantity": 8,
+    "supplier": "810596b2-2d8e-4acb-a458-cf786fd965a4",
+    "type": "Fertilizers",
+    "created_at": "2024-07-31 06:56:19"
+  },
+  "54801f68-d6de-4ff3-ad32-ba186940fb3f": {
+    "name": "Soybean Seeds",
+    "quantity": 6,
+    "supplier": "810596b2-2d8e-4acb-a458-cf786fd965a4",
+    "type": "Seeds",
+    "created_at": "2024-09-06 06:22:19"
+  },
+  "ed35f4db-ce7b-4506-8fa9-e22828dc5e55": {
+    "name": "Organic Fertilizers",
+    "quantity": 5,
+    "supplier": "ad9a8e65-5042-4f97-b30a-d4c3de6d3c12",
+    "type": "Fertilizers",
+    "created_at": "2024-10-01 09:44:19"
+  },
+  "8bcc6818-6c1a-4d9d-900c-cebed2f84d8b": {
+    "name": "Ammonium Nitrate",
+    "quantity": 1,
+    "supplier": "8e5579bd-5916-421a-ab9b-84ec1d38bff3",
+    "type": "Fertilizers",
+    "created_at": "2024-09-20 18:31:19"
+  },
+  "598f744d-7440-49a1-be41-c92d545d38de": {
+    "name": "Organic Fertilizers",
+    "quantity": 6,
+    "supplier": "a6e33f4f-9623-41b4-86c2-f1b501b3f204",
+    "type": "Fertilizers",
+    "created_at": "2024-09-24 20:17:19"
+  },
+  "a235c918-265f-475d-b7af-730e0ba284c9": {
+    "name": "Wheat Seeds",
+    "quantity": 7,
+    "supplier": "fb0b5b5a-d2a1-4e59-8a49-e2e3c9a2db76",
+    "type": "Seeds",
+    "created_at": "2024-10-10 10:21:19"
+  },
+  "5800a32c-587a-442f-b4f8-57c63c5a3112": {
+    "name": "Cotton Seeds",
+    "quantity": 3,
+    "supplier": "810596b2-2d8e-4acb-a458-cf786fd965a4",
+    "type": "Seeds",
+    "created_at": "2024-10-02 04:08:19"
+  },
+  "4ba107e2-dfc5-46db-be85-eb82359e9e7e": {
+    "name": "Ammonium Nitrate",
+    "quantity": 8,
+    "supplier": "fb0b5b5a-d2a1-4e59-8a49-e2e3c9a2db76",
+    "type": "Fertilizers",
+    "created_at": "2024-09-04 19:38:19"
+  },
+  "d7ccc8db-5f72-4945-8650-ef56b5335855": {
+    "name": "Monoammonium Phosphate (MAP)",
+    "quantity": 9,
+    "supplier": "1f4d0c36-e61a-4f3f-854d-2f2a9e1e118f",
+    "type": "Fertilizers",
+    "created_at": "2024-08-01 08:14:19"
+  },
+  "c22e5ca9-030b-4877-b718-0c19576c80c9": {
+    "name": "Barley Seeds",
+    "quantity": 8,
+    "supplier": "ad9a8e65-5042-4f97-b30a-d4c3de6d3c12",
+    "type": "Seeds",
+    "created_at": "2024-08-14 16:17:19"
+  },
+  "a9b59caf-5d25-43f1-9bd3-36cd58d51540": {
+    "name": "Potassium Sulfate",
+    "quantity": 7,
+    "supplier": "a6e33f4f-9623-41b4-86c2-f1b501b3f204",
+    "type": "Fertilizers",
+    "created_at": "2024-08-18 19:32:19"
+  },
+  "b159a2bf-a67a-4f50-afc5-3311dc29be01": {
+    "name": "Cotton Seeds",
+    "quantity": 9,
+    "supplier": "cc477d89-0c28-491b-ae97-1b0029c9f20b",
+    "type": "Seeds",
+    "created_at": "2024-10-01 12:27:19"
+  },
+  "7dc62742-82b9-4db3-b172-8d33c46a5a31": {
+    "name": "Cotton Seeds",
+    "quantity": 2,
+    "supplier": "a310ddba-3ed7-4899-ae4d-e0d08257f160",
+    "type": "Seeds",
+    "created_at": "2024-07-25 19:45:19"
+  },
+  "da61ea5f-85c8-4ce9-85c6-26150d288b60": {
+    "name": "Barley Seeds",
+    "quantity": 8,
+    "supplier": "34ed6bff-74d0-46bb-b146-c12fab99949b",
+    "type": "Seeds",
+    "created_at": "2024-09-29 22:09:19"
+  },
+  "d3e76539-08f7-40d3-a9c4-c86023db06b9": {
+    "name": "Hybrid Corn Seeds",
+    "quantity": 8,
+    "supplier": "a310ddba-3ed7-4899-ae4d-e0d08257f160",
+    "type": "Seeds",
+    "created_at": "2024-07-22 21:35:19"
+  },
+  "1982beba-b485-4e80-98b7-1bf6697e6eb8": {
+    "name": "Barley Seeds",
+    "quantity": 2,
+    "supplier": "cc477d89-0c28-491b-ae97-1b0029c9f20b",
+    "type": "Seeds",
+    "created_at": "2024-08-06 01:22:19"
+  },
+  "37bad6dd-7b00-4310-a85f-b6b7781dda5e": {
+    "name": "Barley Seeds",
+    "quantity": 6,
+    "supplier": "8e5579bd-5916-421a-ab9b-84ec1d38bff3",
+    "type": "Seeds",
+    "created_at": "2024-07-27 05:56:19"
+  },
+  "6d78e05d-3f24-4c92-8b74-2b60e92446fa": {
+    "name": "Urea",
+    "quantity": 6,
+    "supplier": "a310ddba-3ed7-4899-ae4d-e0d08257f160",
+    "type": "Fertilizers",
+    "created_at": "2024-08-08 03:01:19"
+  },
+  "688ed51c-718e-4594-9a8b-caf5038b968a": {
+    "name": "Organic Fertilizers",
+    "quantity": 9,
+    "supplier": "ad9a8e65-5042-4f97-b30a-d4c3de6d3c12",
+    "type": "Fertilizers",
+    "created_at": "2024-09-21 20:41:19"
+  },
+  "29af5460-7c0d-49bc-815b-b6a55b4bd292": {
+    "name": "Barley Seeds",
+    "quantity": 7,
+    "supplier": "1f4d0c36-e61a-4f3f-854d-2f2a9e1e118f",
+    "type": "Seeds",
+    "created_at": "2024-09-25 08:57:19"
+  },
+  "4d4e5da1-157e-46e0-8a35-ac6037c6a8e6": {
+    "name": "Urea",
+    "quantity": 5,
+    "supplier": "f946d9d6-1dc6-41de-9cf1-24ae10a2c0d7",
+    "type": "Fertilizers",
+    "created_at": "2024-08-23 21:09:19"
+  }
+}
