@@ -2,12 +2,13 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 from common import (
     get_current_timestamp,
+    import_data_from_json,
     export_data_to_json,
     generate_unique_id,
-    save_data_to_csv,
     is_valid_email,
     load_from_csv,
     refresh_table,
+    save_to_csv,
 )
 
 # Initial data for suppliers
@@ -32,12 +33,10 @@ def load_suppliers_from_csv(tree_suppliers):
 
 # Function to register a new supplier
 def add_supplier(supplier_name, email):
-    supplier_id = generate_unique_id()  # Generate a new UUID
-    created_at = get_current_timestamp()  # Get current timestamp
-    suppliers[supplier_id] = {
+    suppliers[generate_unique_id()] = {
         "name": supplier_name,
         "email": email,
-        "created_at": created_at,
+        "created_at": get_current_timestamp(),
     }
     save_suppliers_to_csv()
 
@@ -45,13 +44,50 @@ def add_supplier(supplier_name, email):
 # Function to save suppliers to CSV
 def save_suppliers_to_csv():
     headers = ["ID", "Name", "Email", "Created At"]
-    save_data_to_csv(SUPPLIER_CSV_FILE, headers, suppliers)
+    data = [
+        [
+            supplier_id,
+            details["name"],
+            details["email"],
+            details["created_at"],
+        ]
+        for supplier_id, details in suppliers.items()
+    ]
+    save_to_csv(SUPPLIER_CSV_FILE, headers, data)
 
 
 # Function to export data when the button is clicked
 def export_data():
     export_data_to_json(suppliers, "suppliers")
     messagebox.showinfo("Success", "Data exported successfully!")
+
+
+# Function to handle the import action
+def import_data(tree_suppliers):
+    try:
+        data = import_data_from_json()
+
+        if data:
+            for supplier_id, details in data.items():
+                suppliers[supplier_id] = {
+                    "name": details["name"],
+                    "email": details["email"],
+                    "created_at": details.get("created_at", get_current_timestamp()),
+                }
+
+            # Update the CSV file with the new data
+            save_suppliers_to_csv()
+            refresh_table(tree_suppliers, suppliers)
+
+            messagebox.showinfo("Success", "Data imported successfully!")
+    except FileNotFoundError:
+        messagebox.showwarning("No File Selected", "Please select a JSON file.")
+    except ValueError as ve:
+        messagebox.showerror("Invalid JSON", str(ve))
+    except RuntimeError as re:
+        messagebox.showerror("Error", str(re))
+    except Exception as e:
+        messagebox.showerror("Unexpected Error", f"An unexpected error occurred: {e}")
 
 
 # Function to add a new supplier via GUI
@@ -155,13 +191,25 @@ def create_supplier_page(root):
     for col in columns_suppliers:
         tree_suppliers.heading(col, text=col)
 
+    # Frame for adding new supplies
+    frame_footer_buttons = tk.Frame(frame_table_suppliers)
+    frame_footer_buttons.pack(pady=10)
+
     # Button to export data
     btn_export_data = tk.Button(
-        frame_suppliers,
+        frame_footer_buttons,
         text="Export Data (JSON)",
         command=export_data,
     )
-    btn_export_data.pack(pady=10)
+    btn_export_data.grid(row=1, column=1, sticky="ew")
+
+    # Button to import data
+    btn_import_data = tk.Button(
+        frame_footer_buttons,
+        text="Import Data (JSON)",
+        command=lambda: import_data(tree_suppliers),
+    )
+    btn_import_data.grid(row=1, column=2, sticky="ew")
 
     # Load existing suppliers from CSV
     load_suppliers_from_csv(tree_suppliers)
