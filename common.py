@@ -1,6 +1,5 @@
-from datetime import datetime
 from tkinter import filedialog
-import tkinter as tk
+from datetime import datetime
 import uuid
 import json
 import csv
@@ -45,12 +44,6 @@ def load_from_csv(file_path):
     return data
 
 
-# Function to save dynamic data to CSV
-def save_data_to_csv(file_path, headers, data_dict):
-    data = [[key] + list(values.values()) for key, values in data_dict.items()]
-    save_to_csv(file_path, headers, data)
-
-
 # Function to refresh dynamic data table in the GUI
 def refresh_table(tree, data_dict):
     for row in tree.get_children():
@@ -70,3 +63,25 @@ def export_data_to_json(data, filename):
         json.dump(data, json_file, indent=4)
 
     print(f"Exported data to {json_filename}.")
+
+
+# Function to import data from a JSON file
+def import_data_from_json():
+    # Open file dialog to select the JSON file
+    filename = filedialog.askopenfilename(
+        title="Select a JSON file",
+        filetypes=(("JSON files", "*.json"), ("All files", "*.*")),
+    )
+
+    if not filename:
+        raise FileNotFoundError("No file was selected")
+
+    try:
+        # Open and load the JSON file
+        with open(filename, "r") as json_file:
+            data = json.load(json_file)
+            return data  # Return the imported data
+    except json.JSONDecodeError:
+        raise ValueError("The selected file is not a valid JSON.")
+    except Exception as e:
+        raise RuntimeError(f"An error occurred while importing data: {e}")
