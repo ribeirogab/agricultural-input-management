@@ -2,11 +2,16 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 from common import (
     get_current_timestamp,
+    import_data_from_json,
     export_data_to_json,
     generate_unique_id,
     load_from_csv,
+    refresh_table,
     save_to_csv,
 )
+from predict_usage_modal import show_predict_usage_modal
+from usage_report_modal import show_usage_report_modal
+
 
 # Initial data for supplies and suppliers
 supplies = {}
@@ -15,6 +20,24 @@ suppliers = {}
 # CSV file for supplies and suppliers
 SUPPLY_CSV_FILE = "supplies.csv"
 SUPPLIER_CSV_FILE = "suppliers.csv"
+
+# Predefined supply names for each type
+SUPPLY_TYPES = {
+    "Fertilizers": [
+        "Ammonium Nitrate",
+        "Monoammonium Phosphate (MAP)",
+        "Urea",
+        "Potassium Sulfate",
+        "Organic Fertilizers",
+    ],
+    "Seeds": [
+        "Soybean Seeds",
+        "Hybrid Corn Seeds",
+        "Cotton Seeds",
+        "Wheat Seeds",
+        "Barley Seeds",
+    ],
+}
 
 
 # Function to load suppliers from CSV
@@ -57,19 +80,21 @@ def load_supplies_from_csv(tree_supplies):
             "name": row["Name"],
             "quantity": int(row["Quantity"]),
             "supplier": row["Supplier"],  # Save the supplier ID
+            "type": row["Type"],  # Save the type of supply
             "created_at": row["Created At"],
         }
     refresh_supply_table(tree_supplies)
 
 
 # Function to register a new supply
-def add_supply(supply_name, quantity, supplier_id):
+def add_supply(supply_name, quantity, supplier_id, supply_type):
     supply_id = generate_unique_id()  # Generate a UUID as ID
     created_at = get_current_timestamp()  # Get current timestamp
     supplies[supply_id] = {
         "name": supply_name,
         "quantity": quantity,
         "supplier": supplier_id,  # Save supplier ID
+        "type": supply_type,  # Save supply type
         "created_at": created_at,
     }
     save_supplies_to_csv()
@@ -77,13 +102,14 @@ def add_supply(supply_name, quantity, supplier_id):
 
 # Function to save supplies to CSV (save supplier ID)
 def save_supplies_to_csv():
-    headers = ["ID", "Name", "Quantity", "Supplier", "Created At"]
+    headers = ["ID", "Name", "Quantity", "Supplier", "Type", "Created At"]
     data = [
         [
             supply_id,
             details["name"],
             details["quantity"],
             details["supplier"],  # Save supplier ID to CSV
+            details["type"],  # Save supply type to CSV
             details["created_at"],
         ]
         for supply_id, details in supplies.items()
@@ -97,55 +123,92 @@ def export_data():
     messagebox.showinfo("Success", "Data exported successfully!")
 
 
-# Function to refresh the supply table in the GUI (show supplier name)
+# Function to handle the import action
+def import_data(tree_supplies):
+    try:
+        data = import_data_from_json()
+
+        if data:
+            for supply_id, details in data.items():
+                supplies[supply_id] = {
+                    "name": details["name"],
+                    "quantity": details["quantity"],
+                    "supplier": details["supplier"],
+                    "type": details["type"],
+                    "created_at": details.get("created_at", get_current_timestamp()),
+                }
+
+            # Update the CSV file with the new data
+            save_supplies_to_csv()
+            refresh_supply_table(tree_supplies)
+
+            messagebox.showinfo("Success", "Data imported successfully!")
+    except FileNotFoundError:
+        messagebox.showwarning("No File Selected", "Please select a JSON file.")
+    except ValueError as ve:
+        messagebox.showerror("Invalid JSON", str(ve))
+    except RuntimeError as re:
+        messagebox.showerror("Error", str(re))
+    except Exception as e:
+        messagebox.showerror("Unexpected Error", f"An unexpected error occurred: {e}")
+
+
+# Function to refresh the supply table in the GUI (show supplier name and type)
 def refresh_supply_table(tree_supplies):
-    for row in tree_supplies.get_children():
-        tree_supplies.delete(row)
+    table_dict = {}
+
     for supply_id, details in supplies.items():
-        supplier_name = get_supplier_name_by_id(
-            details["supplier"]
-        )  # Get supplier name by ID
-        tree_supplies.insert(
-            "",
-            tk.END,
-            values=(
-                supply_id,
-                details["name"],
-                details["quantity"],
-                supplier_name,  # Display supplier name
-                details["created_at"],
-            ),
-        )
+        table_dict[supply_id] = {
+            "name": details["name"],
+            "quantity": details["quantity"],
+            "supplier": get_supplier_name_by_id(details["supplier"]),
+            "type": details["type"],
+            "created_at": details.get("created_at", get_current_timestamp()),
+        }
+
+    refresh_table(tree_supplies, table_dict)
+
+
+# Function to update supply names based on the selected type
+def update_supply_names_by_type(combobox_name, combobox_type):
+    supply_type = combobox_type.get()
+    if supply_type in SUPPLY_TYPES:
+        combobox_name["values"] = SUPPLY_TYPES[supply_type]
+    else:
+        combobox_name["values"] = []
 
 
 # Function to add a new supply via GUI
 def add_supply_gui(
-    entry_supply_name,
-    entry_quantity,
-    combobox_supplier,
-    tree_supplies,
+    entry_supply_name, entry_quantity, combobox_supplier, combobox_type, tree_supplies
 ):
     supply_name = entry_supply_name.get()
     quantity = entry_quantity.get()
     supplier_name = combobox_supplier.get()  # Get supplier name
+    supply_type = combobox_type.get()  # Get supply type
 
     supplier_id = get_supplier_id_by_name(supplier_name)  # Get supplier ID by name
 
     # Validate if all fields are filled
-    if not supply_name or not quantity or not supplier_id:
+    if not supply_name or not quantity or not supplier_id or not supply_type:
         messagebox.showerror("Error", "All fields must be filled!")
         return
 
-    add_supply(supply_name, int(quantity), supplier_id)
+    add_supply(supply_name, int(quantity), supplier_id, supply_type)
     refresh_supply_table(tree_supplies)
-    clear_supply_fields(entry_supply_name, entry_quantity, combobox_supplier)
+    clear_supply_fields(
+        entry_supply_name, entry_quantity, combobox_supplier, combobox_type
+    )
 
 
 # Function to clear input fields for supplies
-def clear_supply_fields(entry_supply_name, entry_quantity, combobox_supplier):
-    entry_supply_name.delete(0, tk.END)
+def clear_supply_fields(
+    entry_supply_name, entry_quantity, combobox_supplier, combobox_type
+):
+    entry_supply_name.set("")  # Clear combobox for supply names
     entry_quantity.delete(0, tk.END)
-    combobox_supplier.set("")  # Clear combobox
+    combobox_supplier.set("")  # Clear combobox for suppliers
+    combobox_type.set("")  # Clear combobox for types
 
 
 # Function to validate that only numbers are allowed in the quantity field
@@ -173,24 +236,31 @@ def create_supply_page(root):
     frame_add_supplies = tk.Frame(frame_supplies)
     frame_add_supplies.pack(pady=10)
 
-    tk.Label(frame_add_supplies, text="Supply Name:").grid(row=0, column=0)
-    entry_supply_name = tk.Entry(frame_add_supplies)
-    entry_supply_name.grid(row=0, column=1)
+    tk.Label(frame_add_supplies, text="Type:").grid(row=0, column=0)
+    combobox_type = ttk.Combobox(
+        frame_add_supplies, state="readonly", values=["Fertilizers", "Seeds"]
+    )
+    combobox_type.grid(row=0, column=1)
 
-    tk.Label(frame_add_supplies, text="Quantity:").grid(row=1, column=0)
+    tk.Label(frame_add_supplies, text="Supply Name:").grid(row=1, column=0)
+    combobox_name = ttk.Combobox(frame_add_supplies, state="readonly")
+    combobox_name.grid(row=1, column=1)
 
-    # Validation for the quantity field to accept only numbers
+    combobox_type.bind(
+        "<<ComboboxSelected>>",
+        lambda event: update_supply_names_by_type(combobox_name, combobox_type),
+    )
+
+    tk.Label(frame_add_supplies, text="Quantity:").grid(row=2, column=0)
     validate_quantity = root.register(validate_quantity_input)
     entry_quantity = tk.Entry(
         frame_add_supplies, validate="key", validatecommand=(validate_quantity, "%P")
     )
-    entry_quantity.grid(row=1, column=1)
+    entry_quantity.grid(row=2, column=1)
 
-    tk.Label(frame_add_supplies, text="Supplier:").grid(row=2, column=0)
-
-    # Create a combobox for selecting suppliers (only showing names)
+    tk.Label(frame_add_supplies, text="Supplier:").grid(row=3, column=0)
     combobox_supplier = ttk.Combobox(frame_add_supplies, state="readonly")
-    combobox_supplier.grid(row=2, column=1)
+    combobox_supplier.grid(row=3, column=1)
 
     # Button to refresh the supplier combobox
     btn_refresh_suppliers = tk.Button(
@@ -198,26 +268,27 @@ def create_supply_page(root):
         text="Refresh Suppliers",
         command=lambda: refresh_suppliers_combobox(combobox_supplier, True),
     )
-    btn_refresh_suppliers.grid(row=2, column=2)
+    btn_refresh_suppliers.grid(row=3, column=2)
 
     # Button to add supply
     btn_add_supply = tk.Button(
         frame_add_supplies,
         text="Add Supply",
         command=lambda: add_supply_gui(
-            entry_supply_name,
+            combobox_name,
             entry_quantity,
             combobox_supplier,
+            combobox_type,
             tree_supplies,
         ),
     )
-    btn_add_supply.grid(row=3, columnspan=2, pady=10)
+    btn_add_supply.grid(row=4, columnspan=2, pady=10)
 
     # Table for supplies (after the form)
     frame_table_supplies = tk.Frame(frame_supplies)
     frame_table_supplies.pack(pady=10)
 
-    columns_supplies = ("ID", "Name", "Quantity", "Supplier", "Created At")
+    columns_supplies = ("ID", "Name", "Quantity", "Supplier", "Type", "Created At")
     tree_supplies = ttk.Treeview(
         frame_table_supplies, columns=columns_supplies, show="headings"
     )
@@ -242,36 +313,25 @@ def create_supply_page(root):
     btn_import_data = tk.Button(
         frame_footer_buttons,
         text="Import Data (JSON)",
+        command=lambda: import_data(tree_supplies),
     )
     btn_import_data.grid(row=1, column=2, sticky="ew")
 
     # Button to predict supply usage
-    btn_import_data = tk.Button(
+    btn_predict_usage = tk.Button(
         frame_footer_buttons,
         text="Predict Supply Usage",
+        command=lambda: show_predict_usage_modal(supplies),
     )
-    btn_import_data.grid(row=1, column=3, sticky="ew")
+    btn_predict_usage.grid(row=1, column=3, sticky="ew")
 
     # Button to generate usage report
-    btn_import_data = tk.Button(
+    btn_generate_report = tk.Button(
         frame_footer_buttons,
         text="Generate Usage Report",
+        command=lambda: show_usage_report_modal(supplies, suppliers),
     )
-    btn_import_data.grid(row=2, column=1, sticky="ew")
-
-    # Button to check expiration alert
-    btn_import_data = tk.Button(
-        frame_footer_buttons,
-        text="Check Expiration Alert",
-    )
-    btn_import_data.grid(row=2, column=2, sticky="ew")
-
-    # Button to check stock levels
-    btn_import_data = tk.Button(
-        frame_footer_buttons,
-        text="Check Stock Levels",
-    )
-    btn_import_data.grid(row=2, column=3, sticky="ew")
+    btn_generate_report.grid(row=2, column=1, sticky="ew")
 
     # Load existing supplies from CSV
     load_supplies_from_csv(tree_supplies)
