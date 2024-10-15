@@ -1,3 +1,5 @@
 __pycache__
 *.csv
 *.json
+!example_supply_data.json
+!example_supplier_data.json
