@@ -6,54 +6,49 @@ from common import (
     export_data_to_json,
     generate_unique_id,
     is_valid_email,
-    load_from_csv,
     refresh_table,
-    save_to_csv,
 )
+from database import fetch_suppliers, save_suppliers
 
 # Initial data for suppliers
 suppliers = {}
 
-# CSV file for suppliers
-SUPPLIER_CSV_FILE = "suppliers.csv"
 
-
-# Function to load suppliers from CSV
-def load_suppliers_from_csv(tree_suppliers):
-    rows = load_from_csv(SUPPLIER_CSV_FILE)
-    for row in rows:
-        supplier_id = row["ID"]  # Load UUID as ID
+# Function to load suppliers from DB
+def load_suppliers_from_db(tree_suppliers):
+    supplier_rows = fetch_suppliers()
+    suppliers.clear()
+    for row in supplier_rows:
+        supplier_id = row["id"]
         suppliers[supplier_id] = {
-            "name": row["Name"],
-            "email": row["Email"],
-            "created_at": row["Created At"],
+            "name": row["name"],
+            "email": row["email"],
+            "created_at": row["created_at"],
         }
     refresh_table(tree_suppliers, suppliers)
 
 
+# Function to save suppliers to the database with error handling
+def save_suppliers_to_db(tree_suppliers):
+    try:
+        # Call the function to save suppliers to the database
+        save_suppliers(suppliers)
+        refresh_table(tree_suppliers, suppliers)
+    except Exception:
+        # If an error occurs, show an error message with the exception
+        messagebox.showerror(
+            "Error", "An error occurred while saving suppliers, please restart the app."
+        )
+
+
 # Function to register a new supplier
-def add_supplier(supplier_name, email):
+def add_supplier(supplier_name, email, tree_suppliers):
     suppliers[generate_unique_id()] = {
         "name": supplier_name,
         "email": email,
         "created_at": get_current_timestamp(),
     }
-    save_suppliers_to_csv()
-
-
-# Function to save suppliers to CSV
-def save_suppliers_to_csv():
-    headers = ["ID", "Name", "Email", "Created At"]
-    data = [
-        [
-            supplier_id,
-            details["name"],
-            details["email"],
-            details["created_at"],
-        ]
-        for supplier_id, details in suppliers.items()
-    ]
-    save_to_csv(SUPPLIER_CSV_FILE, headers, data)
+    save_suppliers_to_db(tree_suppliers)
 
 
 # Function to export data when the button is clicked
@@ -75,9 +70,8 @@ def import_data(tree_suppliers):
                     "created_at": details.get("created_at", get_current_timestamp()),
                 }
 
-            # Update the CSV file with the new data
-            save_suppliers_to_csv()
-            refresh_table(tree_suppliers, suppliers)
+            # Update the DB with the new data
+            save_suppliers_to_db(tree_suppliers)
 
             messagebox.showinfo("Success", "Data imported successfully!")
     except FileNotFoundError:
@@ -104,8 +98,7 @@ def add_supplier_gui(entry_supplier_name, entry_supplier_email, tree_suppliers):
         messagebox.showerror("Error", "All fields must be filled!")
         return
 
-    add_supplier(supplier_name, supplier_email)
-    refresh_table(tree_suppliers, suppliers)
+    add_supplier(supplier_name, supplier_email, tree_suppliers)
     clear_supplier_fields(entry_supplier_name, entry_supplier_email)
 
 
@@ -113,26 +106,6 @@ def add_supplier_gui(entry_supplier_name, entry_supplier_email, tree_suppliers):
 def clear_supplier_fields(entry_supplier_name, entry_supplier_email):
     entry_supplier_name.delete(0, tk.END)
     entry_supplier_email.delete(0, tk.END)
-
-
-# Function to remove the selected supplier
-def remove_supplier(tree_suppliers):
-    selected_item = tree_suppliers.selection()
-
-    if not selected_item:
-        messagebox.showerror("Error", "No supplier selected to remove!")
-        return
-
-    selected_supplier_id = tree_suppliers.item(selected_item)["values"][0]
-
-    # Confirm before deletion
-    confirm = messagebox.askyesno(
-        "Confirm", "Are you sure you want to delete this supplier?"
-    )
-    if confirm:
-        del suppliers[selected_supplier_id]  # Remove supplier from dictionary
-        save_suppliers_to_csv()  # Update CSV file
-        refresh_table(tree_suppliers, suppliers)
 
 
 # Function to create the supplier page
@@ -170,14 +143,6 @@ def create_supplier_page(root):
     )
     btn_add_supplier.grid(row=2, columnspan=2, pady=10)
 
-    # Button to remove supplier
-    btn_remove_supplier = tk.Button(
-        frame_add_suppliers,
-        text="Remove Supplier",
-        command=lambda: remove_supplier(tree_suppliers),
-    )
-    btn_remove_supplier.grid(row=3, columnspan=2, pady=10)
-
     # Table for suppliers (after the form)
     frame_table_suppliers = tk.Frame(frame_suppliers)
     frame_table_suppliers.pack(pady=10)
@@ -211,7 +176,7 @@ def create_supplier_page(root):
     )
     btn_import_data.grid(row=1, column=2, sticky="ew")
 
-    # Load existing suppliers from CSV
-    load_suppliers_from_csv(tree_suppliers)
+    # Load existing suppliers from DB
+    load_suppliers_from_db(tree_suppliers)
 
     return frame_suppliers

@@ -5,12 +5,11 @@ from common import (
     import_data_from_json,
     export_data_to_json,
     generate_unique_id,
-    load_from_csv,
     refresh_table,
-    save_to_csv,
 )
 from predict_usage_modal import show_predict_usage_modal
 from usage_report_modal import show_usage_report_modal
+from database import fetch_suppliers, fetch_supplies, save_supplies
 
 
 # Initial data for supplies and suppliers
@@ -40,16 +39,32 @@ SUPPLY_TYPES = {
 }
 
 
-# Function to load suppliers from CSV
-def load_suppliers():
+# Function to load suppliers from the database
+def load_suppliers_from_db():
     global suppliers
-    rows = load_from_csv(SUPPLIER_CSV_FILE)
-    suppliers = {row["ID"]: row["Name"] for row in rows}
+    supplier_rows = fetch_suppliers()
+    suppliers = {row["id"]: row["name"] for row in supplier_rows}
+
+
+# Function to load supplies from the database
+def load_supplies_from_db(tree_supplies):
+    supply_rows = fetch_supplies()
+    supplies.clear()
+    for row in supply_rows:
+        supply_id = row["id"]
+        supplies[supply_id] = {
+            "name": row["name"],
+            "quantity": row["quantity"],
+            "supplier": row["supplier_id"],
+            "type": row["type"],
+            "created_at": row["created_at"],
+        }
+    refresh_supply_table(tree_supplies)
 
 
 # Function to refresh suppliers in the combobox and show success message
 def refresh_suppliers_combobox(combobox_supplier, show_message=False):
-    load_suppliers()
+    load_suppliers_from_db()
     combobox_supplier["values"] = [
         supplier_name for supplier_name in suppliers.values()
     ]
@@ -71,50 +86,29 @@ def get_supplier_name_by_id(supplier_id):
     return suppliers.get(supplier_id, "Unknown")
 
 
-# Function to load supplies from CSV
-def load_supplies_from_csv(tree_supplies):
-    rows = load_from_csv(SUPPLY_CSV_FILE)
-    for row in rows:
-        supply_id = row["ID"]  # Load UUID as ID
-        supplies[supply_id] = {
-            "name": row["Name"],
-            "quantity": int(row["Quantity"]),
-            "supplier": row["Supplier"],  # Save the supplier ID
-            "type": row["Type"],  # Save the type of supply
-            "created_at": row["Created At"],
-        }
-    refresh_supply_table(tree_supplies)
+# Function to save supplies to the database with error handling
+def save_supplies_to_db(tree_supplies):
+    try:
+        # Call the function to save supplies to the database
+        save_supplies(supplies)
+        refresh_supply_table(tree_supplies)
+    except Exception:
+        # If an error occurs, show an error message with the exception
+        messagebox.showerror(
+            "Error", "An error occurred while saving supplies, please restart the app."
+        )
 
 
 # Function to register a new supply
-def add_supply(supply_name, quantity, supplier_id, supply_type):
-    supply_id = generate_unique_id()  # Generate a UUID as ID
-    created_at = get_current_timestamp()  # Get current timestamp
-    supplies[supply_id] = {
+def add_supply(supply_name, quantity, supplier_id, supply_type, tree_supplies):
+    supplies[generate_unique_id()] = {
         "name": supply_name,
         "quantity": quantity,
-        "supplier": supplier_id,  # Save supplier ID
-        "type": supply_type,  # Save supply type
-        "created_at": created_at,
+        "supplier": supplier_id,
+        "type": supply_type,
+        "created_at": get_current_timestamp(),
     }
-    save_supplies_to_csv()
-
-
-# Function to save supplies to CSV (save supplier ID)
-def save_supplies_to_csv():
-    headers = ["ID", "Name", "Quantity", "Supplier", "Type", "Created At"]
-    data = [
-        [
-            supply_id,
-            details["name"],
-            details["quantity"],
-            details["supplier"],  # Save supplier ID to CSV
-            details["type"],  # Save supply type to CSV
-            details["created_at"],
-        ]
-        for supply_id, details in supplies.items()
-    ]
-    save_to_csv(SUPPLY_CSV_FILE, headers, data)
+    save_supplies_to_db(tree_supplies)
 
 
 # Function to export data when the button is clicked
@@ -139,8 +133,7 @@ def import_data(tree_supplies):
                 }
 
             # Update the CSV file with the new data
-            save_supplies_to_csv()
-            refresh_supply_table(tree_supplies)
+            save_supplies_to_db(tree_supplies)
 
             messagebox.showinfo("Success", "Data imported successfully!")
     except FileNotFoundError:
@@ -194,8 +187,7 @@ def add_supply_gui(
         messagebox.showerror("Error", "All fields must be filled!")
         return
 
-    add_supply(supply_name, int(quantity), supplier_id, supply_type)
-    refresh_supply_table(tree_supplies)
+    add_supply(supply_name, int(quantity), supplier_id, supply_type, tree_supplies)
     clear_supply_fields(
         entry_supply_name, entry_quantity, combobox_supplier, combobox_type
     )
@@ -224,7 +216,7 @@ def create_supply_page(root):
     frame_supplies = tk.Frame(root)
 
     # Load suppliers whenever entering the supply page
-    load_suppliers()
+    load_suppliers_from_db()
 
     # Title and description
     tk.Label(frame_supplies, text="Supply Management", font=("Arial", 18)).pack(pady=10)
@@ -333,8 +325,8 @@ def create_supply_page(root):
     )
     btn_generate_report.grid(row=2, column=1, sticky="ew")
 
-    # Load existing supplies from CSV
-    load_supplies_from_csv(tree_supplies)
+    # Load existing supplies from DB
+    load_supplies_from_db(tree_supplies)
 
     # Load the suppliers into the combobox
     refresh_suppliers_combobox(combobox_supplier)

@@ -23,8 +23,11 @@ def calculate_usage(supplies, suppliers):
         supplier_name = suppliers.get(supplier_id, "Unknown")
         quantity = details["quantity"]
 
-        # Convert the 'created_at' field to a datetime object
-        supply_date = datetime.strptime(details["created_at"], "%Y-%m-%d %H:%M:%S")
+        # Convert the 'created_at' field to a datetime object if it's a string
+        if isinstance(details["created_at"], str):
+            supply_date = datetime.strptime(details["created_at"], "%Y-%m-%d %H:%M:%S")
+        else:
+            supply_date = details["created_at"]
 
         # Usage by type
         usage_by_type[supply_type] += quantity
