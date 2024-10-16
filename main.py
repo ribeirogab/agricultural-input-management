@@ -20,8 +20,8 @@ frame_supplies.grid(row=0, column=0, sticky="nsew")
 frame_suppliers.grid(row=0, column=0, sticky="nsew")
 
 # Add menu commands to switch pages
-main_menu.add_command(label="Supplies", command=lambda: frame_supplies.tkraise())
-main_menu.add_command(label="Suppliers", command=lambda: frame_suppliers.tkraise())
+main_menu.add_command(label="Supply", command=lambda: frame_supplies.tkraise())
+main_menu.add_command(label="Supplier", command=lambda: frame_suppliers.tkraise())
 
 # Show supplies page by default
 frame_supplies.tkraise()
