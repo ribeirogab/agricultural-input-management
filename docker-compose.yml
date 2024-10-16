@@ -1,0 +1,16 @@
+services:
+  oracle:
+    image: gvenzl/oracle-free:23-slim
+    container_name: oracledatabase
+    ports:
+      - "1521:1521"
+    environment:
+      ORACLE_ALLOW_REMOTE: "true"
+      ORACLE_PASSWORD: "root"
+      ORACLE_DATABASE: eis
+      APP_USER: dbuser
+      APP_USER_PASSWORD: dbpass
+    volumes:
+      - ./oracle-db/data:/opt/oracle/oradata
+      - ./oracle-db/initdb.sql:/opt/oracle/scripts/setup/initdb.sql
+
